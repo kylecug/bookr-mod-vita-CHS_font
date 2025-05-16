@@ -96,7 +96,7 @@ jobs:
           make
 
       - name: Upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.config.artifact }}
           path: ./Release/${{ matrix.config.target }}/${{ matrix.config.artifact }}
