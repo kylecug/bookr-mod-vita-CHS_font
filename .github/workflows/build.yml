@@ -6,7 +6,7 @@ on:
   release:
   repository_dispatch:
     types: [run_build]
-workflow_dispatch:
+  workflow_dispatch:
 jobs:
   build:
     name: ${{ matrix.config.target }}
