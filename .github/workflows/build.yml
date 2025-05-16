@@ -16,21 +16,21 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {
-              target: "vita",
-              os: ubuntu-latest,
-              artifact: "bookr-mod-vita.vpk",
-            }
-          - {
-              target: "switch",
-              os: ubuntu-latest,
-              artifact: "bookr-modern.nro"
-            }
-          - {
-              target: "desktop",
-              os: macos-latest,
-              artifact: "bookr-mod-vita"
-            }
+        - {
+            target: "vita",
+            os: ubuntu-latest,
+            artifact: "bookr-mod-vita.vpk",
+          }
+        - {
+            target: "switch",
+            os: ubuntu-latest,
+            artifact: "bookr-modern.nro"
+          }
+        - {
+            target: "desktop",
+            os: macos-latest,
+            artifact: "bookr-mod-vita"
+          }
 
     steps:
       - name: Install dependencies for vita
@@ -96,7 +96,7 @@ jobs:
           make
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.config.artifact }}
           path: ./Release/${{ matrix.config.target }}/${{ matrix.config.artifact }}
